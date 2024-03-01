@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mediapipe Test with Django</title>
+</head>
+<body>
+    <video id = "video" width = "640" height = "480" autoplay></video>
+
+    <script>
+        const videoElement = document.getElementById('video');
+
+        if (navigator.mediaDevices.getUserMedia)
+        {
+            navigator.mediaDevices.getUserMedia({video: true})
+                .then(function(stream)
+                {
+                    videoElement.srcObject = stream;
+                })
+                .catch(function(err)
+                {
+                    console.log("Something went wrong!");
+                });
+
+        }
+    </script>
+</body>
+</html>
